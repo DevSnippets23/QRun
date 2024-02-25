@@ -1,6 +1,6 @@
 {
 	"name": "qrun",
-	"version": "0.0.1-beta.3",
+	"version": "0.0.1-beta.4",
 	"description": "QRun is a lightweight and easy-to-use Node.js library for managing queues efficiently",
 	"main": "index.js",
 	"type": "module",

@@ -4,8 +4,6 @@ QRun is a lightweight and easy-to-use Node.js library for managing queues effici
 
 ## Installation
 
-You can install the QRun library using npm:
-
 ```bash
 npm install qrun
 ```
@@ -43,11 +41,10 @@ yourQueue.whenStopped(() => {
 	console.log('stop');
 });
 
-// or
-
+qrun.getQueue(yourQueue.uuid)
 qrun.getActiveQueues();
 qrun.stopQueue(yourQueue.uuid);
-qrun.delAllQueues();
+qrun.stopAllQueues();
 ```
 
 ### Use in TypeScript
@@ -61,6 +58,8 @@ const yourQueue = qrun.createQueue<string, string>((params, done, stop) => {
 	const result = 'someresult';
 	done(result);
 });
+
+yourQueue.setParams<string>('1', '2', '3', '4')
 
 yourQueue.onDone<string>((result) => {
 	console.log(result);
