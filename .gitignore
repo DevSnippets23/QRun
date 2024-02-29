@@ -1,5 +1,4 @@
 /node_modules
-/.vscode
 /.eslintrc
 /.prettierrc
 /package-lock.json
