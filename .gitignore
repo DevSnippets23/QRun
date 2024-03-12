@@ -2,3 +2,4 @@
 /.eslintrc
 /.prettierrc
 /package-lock.json
+/test
