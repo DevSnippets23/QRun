@@ -56,7 +56,7 @@ declare class Queue<QueueParams = any, QueueResult = any, QueueError = any> {
 	 * @param params
 	 * @param options
 	 */
-	add<Params = QueueParams>(params: Params, options?: QRunQueueAddOptions): void;
+	add<Params = QueueParams>(params: Params, options?: QRunQueueAddOptions): Queue;
 
 	/**
 	 * Finish adding parameters.
@@ -72,25 +72,25 @@ declare class Queue<QueueParams = any, QueueResult = any, QueueError = any> {
 	 * Listen for `done()` events
 	 * @param callback a callback that will execute `QRun` while calling the done() method in `createQueue()` callback
 	 */
-	onDone<Result = QueueResult>(callback: QRunDoneCallback<Result>): void;
+	onDone<Result = QueueResult>(callback: QRunDoneCallback<Result>): Queue;
 
 	/**
 	 * Catching errors
 	 * @param callback a callback that will execute `QRun` during an error
 	 */
-	onError<Error = QueueError>(callback: QRunErrorCallback<Error>): void;
+	onError<Error = QueueError>(callback: QRunErrorCallback<Error>): Queue;
 
 	/**
 	 * Listening for a `stop' event. It is triggered only once
 	 * @param callback a callback that will execute `QRun` while calling the stop() method in `createQueue()` callback
 	 */
-	whenStopped(callback: () => Promise<void> | void): void;
+	whenStopped(callback: () => Promise<void> | void): Queue;
 
 	/**
 	 * Listening for a `final' event. It is triggered only once
 	 * @param callback a callback that will only execute `QRun` after calling `finishAdding()`
 	 */
-	whenFinalised(callback: () => Promise<void> | void): void;
+	whenFinalised(callback: () => Promise<void> | void): Queue;
 }
 
 export const qrun: QRun;
